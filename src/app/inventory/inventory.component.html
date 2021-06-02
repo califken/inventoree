@@ -1,0 +1,53 @@
+<p>
+  inventory works!
+</p>
+
+{{ uid }}
+
+
+<ul>
+  <li *ngFor="let item of items | async">
+    <input type="text" #updatetext [value]="item.text" />
+    <button (click)="updateItem(item.key, updatetext.value)">Update</button>
+    <button (click)="deleteItem(item.key)">Delete</button>
+  </li>
+</ul>
+<input type="text" #newitem />
+
+<div class="card" style="max-width:300px;margin:24px;box-shadow:3px 4px 34px rgba(0,0,0,.4);border:2px solid;">
+  <h5 class="card-header">New Inventory</h5>
+  <div class="card-body">
+
+    <ul class="list-group list-group-flush text-center">
+      <li class="list-group-item">
+        <div class="grid-container">
+          <div>
+            <small>Location</small><br><input mdbInput type="text" id="location" class="form-control" [ngModel]="location"  /></div>
+          <div>
+            <small>Section</small><br><input mdbInput type="text" id="section" class="form-control" [ngModel]="section"  />
+          </div>
+          <div>
+            <small>Bin</small><br><input mdbInput type="text" id="bin" class="form-control" [ngModel]="bin"  />
+          </div>
+        </div>
+           <small>#</small><input mdbInput type="number" id="itemnumber" class="form-control" [ngModel]="itemnumber"  />
+
+      </li>
+      <li class="list-group-item">
+   <small>Inventory Item</small>
+          <input mdbInput type="text" id="name" class="form-control" [ngModel]="name" />
+    
+      </li>
+      <li class="list-group-item">
+    <button (click)="addItem()" class="btn btn-primary">Add</button></li>
+    </ul>
+
+
+
+
+
+  </div>
+</div>
+
+
+
